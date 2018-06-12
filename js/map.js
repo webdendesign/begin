@@ -6,7 +6,7 @@ var checkout = ['12:00', '13:00', '14:00'];
 var features = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
 var description = ;
 var photos = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg', 'http://o0.github.io/assets/images/tokyo/hotel2.jpg', 'http://o0.github.io/assets/images/tokyo/hotel3.jpg'];
-var users = [
+var usersAds = [
   {
     'author': 'img/avatars/user01.png',
     'offer': ['title[0]', 'location.x, location.y', 'price[Math.random() * 1000]', 'type[0]', 'rooms[Math.floor(Math.random() * rooms.length)]', 'guests[Math.floor(Math.random() * 10)]', 'checkin[0]', 'checkout[1]', 'features[Math.floor(Math.random() * rooms.length)]', 'description', 'photos[]'],
@@ -65,5 +65,19 @@ var users = [
   }
 ];
 
+
 var turnMap = document.querySelector('.map');
 turnMap.classList.remove('map--faded');
+
+var template = document.querySelector('template').content.querySelector('.map__card');
+
+for (var i = 0; i < usersAds.length; i++) {
+  var userElement = template.cloneNode(true);
+
+  userElement.querySelector('.map__pin').setAttribute = usersAds[i].location;
+
+  userElement.querySelector('.map__pin').setAttribute = usersAds[i].author;
+
+  userElement.querySelector('.map__pin').setAttribute = usersAds[i].title;
+
+}
