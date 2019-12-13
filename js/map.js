@@ -58,11 +58,179 @@ var usersAds = [
       x: Math.floor(Math.random() * 500),
       y: Math.floor(Math.random() * 500)
     }
+  },
+  {
+    author: {
+      avatar: "img/avatars/user02.png"
+    },
+
+    offer: {
+      title: title[1],
+      address: "location.x, location.y",
+      price: Math.floor(Math.random() * 1000000),
+      type: type[1],
+      rooms: Math.round(Math.random() * rooms.length),
+      guests: Math.floor(Math.random() * 10),
+      checkin: checkin[1],
+      checkout: checkout[2],
+      features: features,
+      description: "",
+      photos: photos
+    },
+
+    location: {
+      x: Math.floor(Math.random() * 500),
+      y: Math.floor(Math.random() * 500)
+    }
+  },
+  {
+    author: {
+      avatar: "img/avatars/user03.png"
+    },
+
+    offer: {
+      title: title[2],
+      address: "location.x, location.y",
+      price: Math.floor(Math.random() * 1000000),
+      type: type[2],
+      rooms: Math.round(Math.random() * rooms.length),
+      guests: Math.floor(Math.random() * 10),
+      checkin: checkin[0],
+      checkout: checkout[2],
+      features: features,
+      description: "",
+      photos: photos
+    },
+
+    location: {
+      x: Math.floor(Math.random() * 500),
+      y: Math.floor(Math.random() * 500)
+    }
+  },
+  {
+    author: {
+      avatar: "img/avatars/user04.png"
+    },
+
+    offer: {
+      title: title[3],
+      address: "location.x, location.y",
+      price: Math.floor(Math.random() * 1000000),
+      type: type[0],
+      rooms: Math.round(Math.random() * rooms.length),
+      guests: Math.floor(Math.random() * 10),
+      checkin: checkin[1],
+      checkout: checkout[1],
+      features: features,
+      description: "",
+      photos: photos
+    },
+
+    location: {
+      x: Math.floor(Math.random() * 500),
+      y: Math.floor(Math.random() * 500)
+    }
+  },
+  {
+    author: {
+      avatar: "img/avatars/user05.png"
+    },
+
+    offer: {
+      title: title[4],
+      address: "location.x, location.y",
+      price: Math.floor(Math.random() * 1000000),
+      type: type[3],
+      rooms: Math.round(Math.random() * rooms.length),
+      guests: Math.floor(Math.random() * 10),
+      checkin: checkin[2],
+      checkout: checkout[0],
+      features: features,
+      description: "",
+      photos: photos
+    },
+
+    location: {
+      x: Math.floor(Math.random() * 500),
+      y: Math.floor(Math.random() * 500)
+    }
+  },
+  {
+    author: {
+      avatar: "img/avatars/user06.png"
+    },
+
+    offer: {
+      title: title[5],
+      address: "location.x, location.y",
+      price: Math.floor(Math.random() * 1000000),
+      type: type[3],
+      rooms: Math.round(Math.random() * rooms.length),
+      guests: Math.floor(Math.random() * 10),
+      checkin: checkin[2],
+      checkout: checkout[2],
+      features: features,
+      description: "",
+      photos: photos
+    },
+
+    location: {
+      x: Math.floor(Math.random() * 500),
+      y: Math.floor(Math.random() * 500)
+    }
+  },
+  {
+    author: {
+      avatar: "img/avatars/user07.png"
+    },
+
+    offer: {
+      title: title[6],
+      address: "location.x, location.y",
+      price: Math.floor(Math.random() * 1000000),
+      type: type[1],
+      rooms: Math.round(Math.random() * rooms.length),
+      guests: Math.floor(Math.random() * 10),
+      checkin: checkin[1],
+      checkout: checkout[1],
+      features: features,
+      description: "",
+      photos: photos
+    },
+
+    location: {
+      x: Math.floor(Math.random() * 500),
+      y: Math.floor(Math.random() * 500)
+    }
+  },
+  {
+    author: {
+      avatar: "img/avatars/user08.png"
+    },
+
+    offer: {
+      title: title[7],
+      address: "location.x, location.y",
+      price: Math.floor(Math.random() * 1000000),
+      type: type[0],
+      rooms: Math.round(Math.random() * rooms.length),
+      guests: Math.floor(Math.random() * 10),
+      checkin: checkin[1],
+      checkout: checkout[0],
+      features: features,
+      description: "",
+      photos: photos
+    },
+
+    location: {
+      x: Math.floor(Math.random() * 1000),
+      y: Math.floor(Math.random() * 1000)
+    }
   }
 ];
 
 var turnMap = document.querySelector(".map");
-turnMap.classList.remove("map--faded");
+// turnMap.classList.remove("map--faded");
 
 var templatePin = document
   .querySelector("template")
@@ -143,11 +311,51 @@ for (var i = 0; i < usersAds.length; i++) {
   fragmentPin.appendChild(renderMen(usersAds[i]));
 }
 
-mapPins.appendChild(fragmentPin);
+// mapPins.appendChild(fragmentPin);
 
 var fragmentCard = document.createDocumentFragment();
 for (var i = 0; i < usersAds.length; i++) {
   fragmentCard.appendChild(renderAds(usersAds[i]));
 }
 
-mapFiltersContainer.appendChild(fragmentCard);
+// mapFiltersContainer.appendChild(fragmentCard);
+
+//---------------------------------------4
+
+var mapFilter = document.querySelectorAll(".map__filter");
+var mapFeatures = document.querySelector(".map__features");
+var adFormDisabled = document.querySelector(".ad-form--disabled");
+var adFormHeader = document.querySelector(".ad-form-header");
+var adFormElementAll = document.querySelectorAll(".ad-form__element");
+var address = document.querySelector("#address");
+
+var mapPinMain = document.querySelector(".map__pin--main");
+
+mapPinMain.addEventListener("mouseup", function() {
+  turnMap.classList.remove("map--faded");
+
+  mapFeatures.removeAttribute("disabled");
+
+  address.value = mapPinMain.style.left + ", " + mapPinMain.style.top;
+
+  for (var i = 0; i < mapFilter.length; i++) {
+    mapFilter[i].removeAttribute("disabled");
+  }
+
+  adFormDisabled.classList.remove("ad-form--disabled");
+  adFormHeader.removeAttribute("disabled");
+  for (var i = 0; i < adFormElementAll.length; i++) {
+    adFormElementAll[i].removeAttribute("disabled");
+  }
+
+  mapPins.appendChild(fragmentPin);
+});
+
+mapPins.addEventListener("click", function() {
+  mapFiltersContainer.appendChild(fragmentCard);
+});
+
+var popupClose = templateCard.querySelector(".popup__close");
+popupClose.addEventListener("click", function() {
+  fragmentCard[i].classList.add("hidden");
+});
