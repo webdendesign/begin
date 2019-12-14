@@ -320,7 +320,7 @@ for (var i = 0; i < usersAds.length; i++) {
 
 // mapFiltersContainer.appendChild(fragmentCard);
 
-//---------------------------------------4
+//---------------------------------------4.1
 
 var mapFilter = document.querySelectorAll(".map__filter");
 var mapFeatures = document.querySelector(".map__features");
@@ -351,11 +351,33 @@ mapPinMain.addEventListener("mouseup", function() {
   mapPins.appendChild(fragmentPin);
 });
 
+var popup = fragmentCard.querySelector(".popup");
+
 mapPins.addEventListener("click", function() {
   mapFiltersContainer.appendChild(fragmentCard);
 });
 
-var popupClose = templateCard.querySelector(".popup__close");
+var popupClose = fragmentCard.querySelector(".popup__close");
 popupClose.addEventListener("click", function() {
-  fragmentCard[i].classList.add("hidden");
+  popup.classList.add("hidden");
 });
+
+//--------------------------------------4.2
+
+var form = document.querySelector(".ad-form");
+var type = form.querySelector("#type");
+var option = type.querySelectorAll("option");
+var price = form.querySelector("#price");
+console.log(option);
+console.log(price);
+for (var i = 0; i < option.length; i++) {
+  if (option[i].value == "bungalo") {
+    price.placeholder = "0";
+  } else if (option[i].value == "flat") {
+    price.placeholder = "1000";
+  } else if (option[i].value == "house") {
+    price.placeholder = "5000";
+  } else if (option[i].value == "palace") {
+    price.placeholder = "10000";
+  }
+}
