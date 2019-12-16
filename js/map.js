@@ -386,26 +386,66 @@ for (var i = 0; i < option.length; i++) {
   valuePlaceholder(option[i]);
 }
 
-// var timein = document.querySelector("#timein");
-// var timeout = document.querySelector("#timeout");
-// var optionTimein = timein.querySelectorAll("option");
-// var optionTimeout = timeout.querySelectorAll("option");
+var timein = document.querySelector("#timein");
+var timeout = document.querySelector("#timeout");
+var optionTimein = timein.querySelectorAll("option");
+var optionTimeout = timeout.querySelectorAll("option");
 
-// var choiceTime = function(timein) {
-//   if (timein === "После 12") {
-//     return (timeout.textContent = "Выезд до 12");
-//   } else if (timein === "После 13") {
-//     return (timeout.textContent = "Выезд до 13");
-//   } else if (timein === "После 14") {
-//     return (timeout.textContent = "Выезд до 14");
-//   }
-// };
+var choiceTime = function(timein) {
+  if (timein === "После 12") {
+    return (timeout.textContent = "Выезд до 12");
+  } else if (timein === "После 13") {
+    return (timeout.textContent = "Выезд до 13");
+  } else if (timein === "После 14") {
+    return (timeout.textContent = "Выезд до 14");
+  }
+};
 
-// for (var i = 0; i < optionTimein.length; i++) {
-//   choiceTime(optionTimein[i].textContent);
-// }
+for (var i = 0; i < optionTimein.length; i++) {
+  choiceTime(optionTimein[i].textContent);
+}
 
 document.querySelector("form").onchange = function(evt) {
   this.timein.value = evt.target.value;
   this.timeout.value = evt.target.value;
 };
+
+// перемещение главного маркера по карте
+
+// mapPinMain.addEventListener("mousedown", function(evt) {
+//   evt.preventDefault();
+
+//   var startCoords = {
+//     x: evt.clientX,
+//     y: evt.clientY
+//   };
+
+//   var onMouseMove = function(moveEvt) {
+//     moveEvt.preventDefault();
+
+//     var shift = {
+//       x: startCoords.x - moveEvt.clientX,
+//       y: startCoords.y - moveEvt.clientY
+//     };
+
+//     startCoords = {
+//       x: moveEvt.clientX,
+//       y: moveEvt.clientY
+//     };
+
+//     mapPinMain.style.top = mapPinMain.offsetTop - shift.y + "px";
+//     mapPinMain.style.left = mapPinMain.offsetLeft - shift.x + "px";
+//   };
+
+//   var onMouseUp = function(upEvt) {
+//     upEvt.preventDefault();
+
+//     document.removeEventListener("mousemove", onMouseMove);
+//     document.removeEventListener("mouseup", onMouseUp);
+//   };
+
+//   document.addEventListener("mousemove", onMouseMove);
+//   document.addEventListener("mouseup", mouseUp);
+// });
+
+// console.log(mapPinMain.startCoords.x);
