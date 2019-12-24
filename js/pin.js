@@ -2,9 +2,7 @@
 
 (function () {
 
-  // var map = document.querySelector('.map').classList.remove('map--faded');
-
-  var mapPins = document.querySelector(".map__pins");
+  var mapPins = document.querySelector('.map__pins');
 
   var templatePin = document.querySelector('template').content.querySelector('.map__pin');
 
@@ -31,6 +29,6 @@
     mapPins.appendChild(fragmentPin);
   }
 
-  // renderPins(window.data);
+  renderPins(window.data);
 
 })();

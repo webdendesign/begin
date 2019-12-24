@@ -24,7 +24,7 @@
     'elevator',
     'conditioner'
   ];
-  var description = "";
+  var description = '';
   var photos = [
     'http://o0.github.io/assets/images/tokyo/hotel1.jpg',
     'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
