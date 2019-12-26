@@ -2,7 +2,7 @@
 
 (function () {
 
-
+  var mapPinMain = document.querySelector('.map__pin--main');
 
   mapPinMain.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
@@ -40,5 +40,4 @@
     document.addEventListener('mouseup', mouseUp);
   });
 
-  console.log(mapPinMain.startCoords.x);
 })();

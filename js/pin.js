@@ -19,16 +19,16 @@
     return userElement;
   };
 
-  var renderPins = function (pins) {
+  window.pin = {
+    renderPins: function (pins) {
 
-    var fragmentPin = document.createDocumentFragment();
+      var fragmentPin = document.createDocumentFragment();
 
-    for (var i = 0; i < pins.length; i++) {
-      fragmentPin.appendChild(renderPin(pins[i]));
+      for (var i = 0; i < pins.length; i++) {
+        fragmentPin.appendChild(renderPin(pins[i]));
+      }
+      mapPins.appendChild(fragmentPin);
     }
-    mapPins.appendChild(fragmentPin);
   }
-
-  renderPins(window.data);
 
 })();
