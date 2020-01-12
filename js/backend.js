@@ -47,4 +47,8 @@
       xhr.send(data);
     }
   }
+
+  // window.backend = {
+  //   load: onload
+  // }
 })();

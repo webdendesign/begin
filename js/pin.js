@@ -16,19 +16,21 @@
 
     userElement.querySelector('img').alt = user.offer.title;
 
+    // userElement.addEventListener('click', onPinClick);
+
     return userElement;
   };
 
-  window.pin = {
-    renderPins: function (pins) {
+  var renderPins = function (pins) {
 
-      var fragmentPin = document.createDocumentFragment();
+    var fragmentPin = document.createDocumentFragment();
 
-      for (var i = 0; i < pins.length; i++) {
-        fragmentPin.appendChild(renderPin(pins[i]));
-      }
-      mapPins.appendChild(fragmentPin);
+    for (var i = 0; i < pins.length; i++) {
+      fragmentPin.appendChild(renderPin(pins[i]));
     }
+    mapPins.appendChild(fragmentPin);
   }
+
+  window.backend.load(renderPins);
 
 })();

@@ -67,17 +67,13 @@
     return adsElement;
   };
 
-  window.card = {
-
-    renderCards: function (cards) {
-      var fragmentCard = document.createDocumentFragment();
-      for (var i = 0; i < cards.length; i++) {
-        fragmentCard.appendChild(renderCard(cards[i]));
-      }
-
-      mapFiltersContainer.appendChild(fragmentCard);
+  var renderCards = function (cards) {
+    var fragmentCard = document.createDocumentFragment();
+    for (var i = 0; i < cards.length; i++) {
+      fragmentCard.appendChild(renderCard(cards[i]));
     }
+    mapFiltersContainer.appendChild(fragmentCard);
   }
-  // window.backend.load(renderCards);
 
+  window.backend.load(renderCards);
 })();
